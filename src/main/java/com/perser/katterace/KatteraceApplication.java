@@ -22,10 +22,10 @@ public class KatteraceApplication {
 		SpringApplication.run(KatteraceApplication.class, args);
 	}
 
-	@GetMapping("/index")
-	public String index() {
-		return "index";
-	}
+	@RequestMapping(value = "/index")
+   public String index() {
+      return "index";
+   }
 
 	@GetMapping("/kontaktos")
 	public String kontaktos() {
