@@ -8,6 +8,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,20 +18,16 @@ import java.nio.charset.StandardCharsets;
 @SpringBootApplication
 @RestController
 @Controller
-public class KatteraceApplication {
+public class KatteraceApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KatteraceApplication.class, args);
 	}
 
-	@RequestMapping(value = "/index")
-   public String index() {
-      return "index";
-   }
-
-	@GetMapping("/kontaktos")
-	public String kontaktos() {
-		return "kontaktos";
+	@Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("voresbaggrund");
 	}
 
+	
 }
