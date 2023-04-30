@@ -18,13 +18,7 @@ import java.nio.charset.StandardCharsets;
 @SpringBootApplication
 @RestController
 @Controller
-public class KatteraceApplication implements WebMvcConfigurer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(KatteraceApplication.class, args);
-	}
-
-	
-
-	
+public class DBcontroller {
+    
 }

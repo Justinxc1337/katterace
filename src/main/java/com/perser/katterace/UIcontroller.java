@@ -18,13 +18,23 @@ import java.nio.charset.StandardCharsets;
 @SpringBootApplication
 @RestController
 @Controller
-public class KatteraceApplication implements WebMvcConfigurer {
+public class UIcontroller {
 
-	public static void main(String[] args) {
-		SpringApplication.run(KatteraceApplication.class, args);
-	}
+    @GetMapping("/index")
+    @ResponseBody
+    public String index() throws IOException {
+        ResourceLoader resourceLoader = new DefaultResourceLoader();
+        Resource resource = resourceLoader.getResource("classpath:/template/index.html");
+        InputStream inputStream = resource.getInputStream();
+        byte[] bytes = StreamUtils.copyToByteArray(inputStream);
+        String htmlContent = new String(bytes, StandardCharsets.UTF_8);
+        return htmlContent;
 
-	
+    }
 
-	
+    @GetMapping("/voresbaggrund")
+    public String voresbaggrund() {
+        return "who cares";
+    }
+
 }
